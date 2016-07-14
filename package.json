@@ -1,0 +1,25 @@
+{
+  "name": "laravel-elixir-artisan-unofficial",
+  "version": "1.0.0",
+  "description": "Laravel Elixir Artisan integration",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "babel --presets=es2015 -d dist src",
+    "prepublish": "npm run compile"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "artisan",
+    "gulp"
+  ],
+  "author": "Christopher Eklund",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-shell": "^0.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
