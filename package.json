@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-artisan-unofficial",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Laravel Elixir Artisan integration",
   "main": "dist/index.js",
   "scripts": {
