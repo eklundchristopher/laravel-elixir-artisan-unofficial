@@ -23,6 +23,15 @@ class ArtisanTask extends Elixir.Task {
     }
 
     /**
+     * Register a watcher.
+     */
+    registerWatchers () {
+        if (this.options.watcher !== undefined) {
+            this.watch(this.options.watcher);
+        }
+    }
+
+    /**
      * Build up the Gulp task.
      */
     gulpTask () {
