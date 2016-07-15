@@ -11,8 +11,8 @@ class ArtisanTask extends Elixir.Task {
     constructor (command, options) {
         super('artisan');
 
-        this.command = command;
-        this.options = options;
+        this.command = command || 'list';
+        this.options = options || { };
     }
 
     /**
@@ -23,10 +23,10 @@ class ArtisanTask extends Elixir.Task {
     }
 
     /**
-     * Register a watcher.
+     * Register file watchers.
      */
     registerWatchers () {
-        if (this.options.watcher !== undefined) {
+        if (this.options && this.options.watcher) {
             this.watch(this.options.watcher);
         }
     }
