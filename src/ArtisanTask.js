@@ -1,19 +1,24 @@
 let shell;
 
 class ArtisanTask extends Elixir.Task {
+
     /**
      * Create a new JavaScriptTask instance.
      *
-     * @param  string  command
-     * @param  object|null  options
-     * @return void
+     * @param  {string}      name
+     * @param  {string}      command
+     * @param  {object|null} options
+     * @param  {GulpPaths}   paths
      */
-    constructor (command, options) {
-        super('artisan');
+    constructor (name, command, options, paths) {
+        super(name, null, paths);
 
         this.command = command || 'list';
         this.options = options || { };
+
+        this.recordStep(this.command);
     }
+
 
     /**
      * Lazy load the task dependencies.
@@ -22,20 +27,27 @@ class ArtisanTask extends Elixir.Task {
         shell = require('gulp-shell');
     }
 
+
     /**
      * Register file watchers.
      */
-    registerWatchers () {
-        if (this.options && this.options.watcher) {
-            this.watch(this.options.watcher);
+    registerWatchers() {
+        if (this.src === undefined || this.src.path === undefined) {
+            return;
         }
+
+        this.recordStep('Registering watcher');
+        this.watch(this.src.path);
     }
+
 
     /**
      * Build up the Gulp task.
      */
     gulpTask () {
         var path = this.options.path || Elixir.config.js.artisan.path;
+
+        this.recordStep('Executing artisan command');
 
         return (
             gulp
