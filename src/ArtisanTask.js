@@ -26,11 +26,13 @@ class ArtisanTask extends Elixir.Task {
      * Build up the Gulp task.
      */
     gulpTask () {
+        var path = this.options.path || Elixir.config.js.artisan.path;
+
         return (
             gulp
-            .src(this.options.path || Elixir.config.js.artisan.path)
+            .src('')
             .pipe(
-                shell('php ./artisan ' + this.command)
+                shell('php ' + path + ' ' + this.command)
             )
         );
     }
