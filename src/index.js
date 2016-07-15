@@ -1,4 +1,4 @@
-import ArtisanTask from './tasks/ArtisanTask';
+import ArtisanTask from './ArtisanTask';
 
 Elixir.config.js.artisan = {
     path: '../../../artisan'
