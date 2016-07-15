@@ -15,8 +15,6 @@ var elixir = require('laravel-elixir');
 
 require('laravel-elixir-artisan-unofficial');
 
-elixir.config.js.artisan.path = './artisan';
-
 elixir(function(mix) {
     mix.artisan('vendor:publish --tag=public --force');
 });
