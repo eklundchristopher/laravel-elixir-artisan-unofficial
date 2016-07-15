@@ -30,7 +30,7 @@ class ArtisanTask extends Elixir.Task {
             gulp
             .src(this.options.path || Elixir.config.js.artisan.path)
             .pipe(
-                shell('php ./artisan' + this.command)
+                shell('php ./artisan ' + this.command)
             )
         );
     }
